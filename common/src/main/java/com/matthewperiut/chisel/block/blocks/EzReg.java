@@ -6,6 +6,7 @@ import com.matthewperiut.chisel.item.ChiselItem;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.RedstoneBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -23,12 +24,16 @@ public class EzReg
     {
         boolean redstone = false;
         boolean pillar = false;
+        boolean purpur = false;
 
         if (name.toLowerCase().contains("redstone"))
             redstone = true;
 
         if (name.toLowerCase().contains("pillar") || name.toLowerCase().contains("twist"))
             pillar = true;
+
+        if (name.toLowerCase().contains("purpur"))
+            purpur = true;
 
         if (group.equals("glass")) {
             Chisel.transparentBlocks.add(name);
@@ -40,7 +45,7 @@ public class EzReg
         String[] individual = name.split("/", 2);
         Identifier baseBlockIdentifier = new Identifier("minecraft",individual[1]);
         ChiselGroupLookup.addItemToGroup(individual[1], baseBlockIdentifier);
-        Block baseBlock = Registries.BLOCK.get(baseBlockIdentifier);
+        Block baseBlock = purpur ? Blocks.PURPUR_BLOCK : Registries.BLOCK.get(baseBlockIdentifier);
         RegistrySupplier<Block> blockSupplier;
         if (!redstone && !pillar)
             blockSupplier = BLOCKS.register(new Identifier("chisel", name), () -> new Block(AbstractBlock.Settings.copy(baseBlock)));
