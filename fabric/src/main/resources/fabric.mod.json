@@ -33,10 +33,10 @@
   "mixins": [],
   
   "depends": {
-    "fabricloader": ">=0.14.19",
+    "fabricloader": "*",
     "architectury": "*",
     "fabric": "*",
-    "minecraft": [ "1.20.1" ],
+    "minecraft": [ "1.19.4" ],
     "java": ">=17"
   }
 }
