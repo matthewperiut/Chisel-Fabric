@@ -30,7 +30,11 @@ public class Chisel {
     public static final Identifier CHISEL_SOUND_ID = new Identifier(MOD_ID, "chisel_sound");
     public static SoundEvent CHISEL_SOUND_EVENT = SoundEvent.of(CHISEL_SOUND_ID);
 
-    public static final ScreenHandlerType<ChiselScreenHandler> CHISEL_SCREEN_HANDLER = new ScreenHandlerType<>(ChiselScreenHandler::new, FeatureFlags.VANILLA_FEATURES);;
+    public static final Registrar<ScreenHandlerType<?>> SCREEN_HANDLERS = MANAGER.get().get(RegistryKeys.SCREEN_HANDLER);
+    public static final RegistrySupplier<ScreenHandlerType<ChiselScreenHandler>> CHISEL_SCREEN_HANDLER = SCREEN_HANDLERS.register(
+            new Identifier(MOD_ID, "chisel_screen_handler"),
+            () -> new ScreenHandlerType<>(ChiselScreenHandler::new, FeatureFlags.VANILLA_FEATURES)
+    );
 
     public static ArrayList<String> transparentBlocks = new ArrayList<>();
     public static ArrayList<String> translucentBlocks = new ArrayList<>();

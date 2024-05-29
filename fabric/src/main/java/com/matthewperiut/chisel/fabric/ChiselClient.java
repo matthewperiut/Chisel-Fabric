@@ -11,7 +11,7 @@ public class ChiselClient implements ClientModInitializer
     @Override
     public void onInitializeClient()
     {
-        HandledScreens.register(CHISEL_SCREEN_HANDLER, ChiselScreen::new);
         ClientRegister.Register();
+        HandledScreens.register(CHISEL_SCREEN_HANDLER.get(), ChiselScreen::new);
     }
 }

@@ -39,7 +39,7 @@ public class ChiselForge {
         event.enqueueWork(
                 // Assume RegistryObject<MenuType<MyMenu>> MY_MENU
                 // Assume MyContainerScreen<MyMenu> which takes in three parameters
-                () -> HandledScreens.register(CHISEL_SCREEN_HANDLER, ChiselScreen::new)
+                () -> HandledScreens.register(CHISEL_SCREEN_HANDLER.get(), ChiselScreen::new)
         );
         for (String name : Chisel.translucentBlocks) {
             Block block = Registries.BLOCK.get(new Identifier(Chisel.MOD_ID, name));

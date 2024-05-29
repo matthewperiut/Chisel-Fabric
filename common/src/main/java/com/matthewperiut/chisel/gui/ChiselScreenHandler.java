@@ -26,7 +26,7 @@ public class ChiselScreenHandler extends ScreenHandler {
     }
 
     public ChiselScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, NbtCompound compound) {
-        super(Chisel.CHISEL_SCREEN_HANDLER, syncId);
+        super(Chisel.CHISEL_SCREEN_HANDLER.get(), syncId);
         checkSize(inventory, 61);
         this.inventory = (ChiselInventory) inventory;
         nbtInventory = compound;
