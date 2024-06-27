@@ -26,6 +26,9 @@
     "client": [
       "com.matthewperiut.chisel.fabric.ChiselClient"
     ],
+    "emi": [
+      "com.matthewperiut.chisel.ChiselEMI"
+    ],
     "rei_client": [
       "com.matthewperiut.chisel.ChiselREI"
     ]
