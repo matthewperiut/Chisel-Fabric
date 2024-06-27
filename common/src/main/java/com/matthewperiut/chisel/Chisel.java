@@ -4,6 +4,8 @@ import com.google.common.base.Supplier;
 import com.google.common.base.Suppliers;
 import com.matthewperiut.chisel.block.BlockRegister;
 import com.matthewperiut.chisel.gui.ChiselScreenHandler;
+import com.matthewperiut.chisel.item.ChiselItem;
+import com.matthewperiut.chisel.registry.ItemGroupRegistry;
 import dev.architectury.registry.registries.Registrar;
 import dev.architectury.registry.registries.RegistrarManager;
 import dev.architectury.registry.registries.RegistrySupplier;
@@ -43,6 +45,8 @@ public class Chisel {
 
     public static void init()
     {
+        Chisel.chiselSupplier = ITEMS.register(new Identifier("chisel", "chisel"), () -> new ChiselItem(new Item.Settings().maxCount(1).arch$tab(ItemGroupRegistry.CLAY_GROUP)));
+        ItemGroupRegistry.Register();
         BlockRegister.Register();
     }
 }
